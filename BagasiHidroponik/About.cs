@@ -27,5 +27,10 @@ namespace BagasiHidroponik
             this.Hide();
             new HalamanUtama().Show();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

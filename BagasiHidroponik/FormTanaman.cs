@@ -65,7 +65,7 @@ namespace BagasiHidroponik
             SqlConnection conn = konn.GetConn();
             // membuka koneksi
             conn.Open();
-            // menyeleksi kode barang dari Tabel Tumbuhan , yang diambil dari yang terakhir dan order by terakhir dan berurutan
+            // menyeleksi KodeTanaman dari Tabel Tumbuhan , yang diambil dari yang terakhir dan order by terakhir dan berurutan
             cmd = new SqlCommand("Select KodeTanaman from TBL_TUMBUHAN where KodeTanaman in(select max(KodeTanaman) from TBL_TUMBUHAN) order by KodeTanaman desc", conn);
             // mengeksesuki reader
             rd = cmd.ExecuteReader();

@@ -34,20 +34,20 @@ namespace BagasiHidroponik
             textBox3.Text = "";
             textBox4.Text = "";
             //memanggil fuction Muncul Data tanam
-            MunculDataTanam();
+            MunculDataPanen();
         }
 
-        void MunculDataTanam()
+        void MunculDataPanen()
         {
             // menyambungkan ke koneksi database
             SqlConnection conn = konn.GetConn();
             // membuka koneksi
             conn.Open();
-            // membuka tabel tumbuhan dari database
+            // membuka tabel Tanam dari database
             cmd = new SqlCommand("select * from TBL_TANAM", conn);
             ds = new DataSet();
             da = new SqlDataAdapter(cmd);
-            // membuat tabel tumbuhan terisi oleh inputan user
+            // membuat tabel Tanam terisi oleh inputan user
             da.Fill(ds, "TBL_TANAM");
             dataGridView1.DataSource = ds;
             // menampilkan tabel yang telah di isini
@@ -128,7 +128,7 @@ namespace BagasiHidroponik
             {
                 // menyambungkan ke koneksi database
                 SqlConnection conn = konn.GetConn();
-                // mengisi tabel Panen sesuai attribut tabelnya
+                // mengisi tabel Tanam sesuai attribut tabelnya
                 cmd = new SqlCommand("insert into TBL_TANAM values('" + textBox1.Text + "','" + textBox2.Text + "' ,'" + textBox3.Text + "','" + textBox4.Text + "')", conn);
                 // membuka koneksi
                 conn.Open();
@@ -170,7 +170,7 @@ namespace BagasiHidroponik
         {
             // menyambungkan ke koneksi database
             SqlConnection conn = konn.GetConn();
-            // Menghapus Tabel Panen, dengan primary KodeTanam
+            // Menghapus Tabel Tanam, dengan primary KodeTanam
             cmd = new SqlCommand("Delete TBL_TANAM where KodeTanam='" + textBox1.Text + "'", conn);
             // membuka koneksi
             conn.Open();
@@ -188,7 +188,7 @@ namespace BagasiHidroponik
             {
                 //mengkoneksikan dengan database
                 SqlConnection conn = konn.GetConn();
-                // membuat query untuk memilih tabel Panen
+                // membuat query untuk memilih tabel Tanam
                 cmd = new SqlCommand("select * from TBL_TANAM where KodeTanam='" + textBox1.Text + "'", conn);
                 // membuka koneksi
                 conn.Open();

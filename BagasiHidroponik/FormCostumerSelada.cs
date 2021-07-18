@@ -42,11 +42,11 @@ namespace BagasiHidroponik
             SqlConnection conn = konn.GetConn();
             // membuka koneksi
             conn.Open();
-            // membuka tabel tumbuhan dari database
+            // membuka tabel Customer dari database
             cmd = new SqlCommand("select * from TBL_CUSTOMER", conn);
             ds = new DataSet();
             da = new SqlDataAdapter(cmd);
-            // membuat tabel tumbuhan terisi oleh inputan user
+            // membuat tabel Customer terisi oleh inputan user
             da.Fill(ds, "TBL_CUSTOMER");
             dataGridView1.DataSource = ds;
             // menampilkan tabel yang telah di isini
@@ -140,7 +140,7 @@ namespace BagasiHidroponik
             //mengeksekusi function
             KondisiAwal();
             NoOtomatis();
-            // mmembuat text 2 sampai 5 dapat terbuka
+            // mmembuat text 2 sampai 4 dapat terbuka
             textBox2.Enabled = true;
             textBox3.Enabled = true;
             textBox4.Enabled = true;
@@ -179,7 +179,7 @@ namespace BagasiHidroponik
             {
                 //mengkoneksikan dengan database
                 SqlConnection conn = konn.GetConn();
-                // membuat query untuk memilih tabel Panen
+                // membuat query untuk memilih tabel Customer
                 cmd = new SqlCommand("select * from TBL_CUSTOMER where KodeCustomer='" + textBox1.Text + "'", conn);
                 // membuka koneksi
                 conn.Open();
@@ -231,7 +231,7 @@ namespace BagasiHidroponik
         {
             // menyambungkan ke koneksi database
             SqlConnection conn = konn.GetConn();
-            // Menghapus Tabel Panen, dengan primary KodePanen
+            // Menghapus Tabel Customer, dengan primary KodeCustomer
             cmd = new SqlCommand("Delete TBL_CUSTOMER where KodeCustomer='" + textBox1.Text + "'", conn);
             // membuka koneksi
             conn.Open();

@@ -40,11 +40,11 @@ namespace BagasiHidroponik
             SqlConnection conn = konn.GetConn();
             // membuka koneksi
             conn.Open();
-            // membuka tabel tumbuhan dari database
+            // membuka tabel Panen dari database
             cmd = new SqlCommand("select * from TBL_PANEN", conn);
             ds = new DataSet();
             da = new SqlDataAdapter(cmd);
-            // membuat tabel tumbuhan terisi oleh inputan user
+            // membuat tabel Panen terisi oleh inputan user
             da.Fill(ds, "TBL_PANEN");
             dataGridView1.DataSource = ds;
             // menampilkan tabel yang telah di isini
@@ -64,7 +64,7 @@ namespace BagasiHidroponik
             SqlConnection conn = konn.GetConn();
             // membuka koneksi
             conn.Open();
-            // menyeleksi kode barang dari Tabel Tumbuhan , yang diambil dari yang terakhir dan order by terakhir dan berurutan
+            // menyeleksi KodePanen dari Tabel Panen , yang diambil dari yang terakhir dan order by terakhir dan berurutan
             cmd = new SqlCommand("Select KodePanen from TBL_PANEN where KodePanen in(select max(KodePanen) from TBL_PANEN) order by KodePanen desc", conn);
             // mengeksesuki reader
             rd = cmd.ExecuteReader();
